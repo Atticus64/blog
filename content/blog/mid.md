@@ -1,5 +1,6 @@
 ---
 external: false
+draft: true
 title: "Midnight Book"
 description: "Midnight C++ Book"
 date: 2023-05-22
