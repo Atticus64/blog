@@ -23,6 +23,10 @@ const sortedPosts = posts
 <PageLayout>
   <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
   <section slot="main">
+		<div class="layout-images">
+			<!--<img src="/images/everest.jpg" alt="train" width="300">-->
+			<img src="/images/city.png" alt="city" >
+		</div>
     <ul>
       {
         sortedPosts.map((post) => {
@@ -68,6 +72,14 @@ const sortedPosts = posts
     list-style-type: none;
     padding: unset;
   }
+
+	.layout-images {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-content: center;
+		gap: 2rem;
+	}
 
   .post {
     display: grid;
