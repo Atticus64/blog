@@ -3,6 +3,9 @@
 	Mode: light/dark is automatically determined by system color scheme.
 	There is no mode toggle.
 */
+@import url('https://fonts.cdnfonts.com/css/epilogue-2');
+@import url('https://fonts.cdnfonts.com/css/jetbrains-mono-2');
+
 
 /* ------ THEMING - Light Mode ------ */
 :root {
@@ -48,7 +51,7 @@
 /* ------ GLOBAL STYLES - START ------ */
 
 :root {
-	font-family: Verdana, sans-serif;
+	font-family: 'Epilogue', sans-serif;
 	line-height: 1.75;
 	scroll-behavior: smooth;
 }
@@ -101,9 +104,11 @@ img {
 	height: auto;
 }
 
+
 code {
 	padding: 2px 5px;
 	color: var(--code-text);
+	font-family: 'JetBrains Mono', monospace;
 	background-color: var(--code-background);
 	border: 1px solid var(--code-border);
 	border-radius: 4px;
