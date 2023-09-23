@@ -7,6 +7,7 @@ import {
   TWITTER_HANDLE,
 } from "../config";
 
+import { ViewTransitions } from 'astro:transitions';
 export interface Props {
   title?: string;
   description?: string;
@@ -29,6 +30,7 @@ const { meta, og, twitter } = getPageMeta({
 
 <!-- Primary Meta Tags -->
 <title>{meta.title}</title>
+<ViewTransitions/>
 <meta name="title" content={meta.title} />
 {meta.description && <meta name="description" content={meta.description} />}
 
