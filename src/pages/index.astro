@@ -18,6 +18,7 @@ const sortedPosts = posts
       new Date(b.frontmatter.date).valueOf() -
       new Date(a.frontmatter.date).valueOf()
   )
+
 ---
 
 <PageLayout>
@@ -51,7 +52,9 @@ const sortedPosts = posts
                     />
                   </a>
                 ) : (
-                  <a href={`/blog/${post.slug}`}>{post.frontmatter.title}</a>
+                  <a href={`/blog/${post.slug}`}>
+					  {post.frontmatter.title}
+				  </a>
                 )}
               </div>
               <div class="publish-date">
@@ -80,6 +83,12 @@ const sortedPosts = posts
 		align-content: center;
 		gap: 2rem;
 	}
+
+  .description {
+	color: var(--text-muted);
+	font-size: 0.875rem;
+	font-style: italic;
+  }
 
   .post {
     display: grid;
