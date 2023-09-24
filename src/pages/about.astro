@@ -11,14 +11,40 @@ import { SITE_TITLE } from "../config"
 
 <section slot="main">	
 	<h2>	Hi! I'm Jonathan</h2>
-	<p>	I'm a Christian Student and Web Developer </p>
-	<img src="/images/tulip_profile.jpg" alt="Tulip" width="400" />
-	<p>
-	 <h3> I will share my knowledge and learnings in this blog. </h4>
-	 I will write about life, programming, web development 
-	</p>
+	<div class="about">	
+		<div>	
+			<p>	I'm a Christian Student and Web Developer </p>
+			<img src="/images/tulip_profile.jpg" alt="Tulip" width="400" />
+		</div>
+		<div>
+			<p>
+				<h3> I will share my knowledge and learnings in this blog. </h3>
+			I will write about life, programming, web development 
+			</p>
+
+			<h4> I'm interested in: </h4>
+			<ul>
+				<li>Web Development</li>
+				<li>Basquetball</li>
+				<li>Video Games</li>
+				<li>Lofi and Christian Music</li>
+			</ul>
+		</div>
+	</div>
 </section>
 
 </PageLayout>
+
+<style> 
+
+.about {
+	display: flex;	
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	gap: 1rem;
+	justify-content: space-between;
+}
+
+</style>
 
 
