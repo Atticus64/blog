@@ -28,8 +28,11 @@ const sortedPosts = posts
   <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
   <section  transition:animate={fade({ duration: '0.4s' })} slot="main">
 		<div class="layout-images">
-			<!--<img src="/images/everest.jpg" alt="train" width="300">-->
-			<img src="/images/city.png" alt="city" >
+      <picture>
+        <source srcset="/images/city.avif" type="image/avif" />
+        <source srcset="/images/city.webp" type="image/webp" />
+        <img alt="city" src="/images/city.png" width="637" height="358" />
+      </picture>
 		</div>
     <ul>
       {
