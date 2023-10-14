@@ -14,7 +14,11 @@ import { SITE_TITLE } from "../config"
 	<div class="about">	
 		<div>	
 			<p>	I'm a Christian Student and Web Developer </p>
-			<img src="/images/tulip_profile.jpg" alt="Tulip" width="400" />
+      <picture>
+        <source srcset="/images/tulip_profile.avif" type="image/avif" />
+        <source srcset="/images/tulip_profile.webp" type="image/webp" />
+        <img alt="Tulip profile" src="/images/tulip_profile.jpg" width="400" height="400" />
+      </picture>
 		</div>
 		<div>
 			<p>
