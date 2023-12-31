@@ -4,7 +4,7 @@ import { blog } from "../lib/markdoc/frontmatter.schema"
 import PageLayout from "../layouts/PageLayout.astro"
 import PageMeta from "../components/PageMeta.astro"
 import ExternalLinkIcon from "../components/ui/icons/external-link.astro"
-import {ViewTransitions, fade} from 'astro:transitions';
+import { ViewTransitions, fade } from "astro:transitions"
 
 import { SITE_TITLE } from "../config"
 
@@ -20,20 +20,18 @@ const sortedPosts = posts
       new Date(b.frontmatter.date).valueOf() -
       new Date(a.frontmatter.date).valueOf()
   )
-
 ---
 
 <PageLayout>
-
   <PageMeta title={`Blog | ${SITE_TITLE}`} slot="meta" />
-  <section  transition:animate={fade({ duration: '0.4s' })} slot="main">
-		<div class="layout-images">
+  <section transition:animate={fade({ duration: "0.4s" })} slot="main">
+    <div class="layout-images">
       <picture>
         <source srcset="/images/city.avif" type="image/avif" />
         <source srcset="/images/city.webp" type="image/webp" />
         <img alt="city" src="/images/city.png" width="637" height="358" />
       </picture>
-		</div>
+    </div>
     <ul>
       {
         sortedPosts.map((post) => {
@@ -45,7 +43,7 @@ const sortedPosts = posts
             day: "numeric",
           })
           return (
-            <li class="post">
+            <div class="post">
               <div class="title">
                 {post.frontmatter.external ? (
                   <a href={post.frontmatter.url} target="_blank">
@@ -58,9 +56,7 @@ const sortedPosts = posts
                     />
                   </a>
                 ) : (
-                  <a href={`/blog/${post.slug}`}>
-					  {post.frontmatter.title}
-				  </a>
+                  <a href={`/blog/${post.slug}`}>{post.frontmatter.title}</a>
                 )}
               </div>
               <div class="publish-date">
@@ -68,7 +64,12 @@ const sortedPosts = posts
                   {formattedDate}
                 </time>
               </div>
-            </li>
+              {post.frontmatter.shortDescription !== undefined ? (
+                <p class="description">{post.frontmatter.shortDescription}</p>
+              ) : (
+                <div />
+              )}
+            </div>
           )
         })
       }
@@ -82,18 +83,18 @@ const sortedPosts = posts
     padding: unset;
   }
 
-	.layout-images {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-content: center;
-		gap: 2rem;
-	}
+  .layout-images {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap: 2rem;
+  }
 
   .description {
-	color: var(--text-muted);
-	font-size: 0.875rem;
-	font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
   }
 
   .post {

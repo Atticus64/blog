@@ -1,8 +1,8 @@
 ---
 external: false
 title: "Deno y Nodejs: empezamos el viaje"
+shortDescription: "Tutorial de Node.js a Deno"
 description: "Diferencias centrales de Deno y Nodejs y porque es importante Deno"
-author: Jonathan
 date: 2023-05-26
 ---
 

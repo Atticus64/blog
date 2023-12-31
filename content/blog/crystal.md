@@ -1,8 +1,9 @@
 ---
-title: New Languages and Technologies are made of Crystal
+title: New Languages and Technologies are made out of Crystal
 author: Jonathan
 external: false
 description: "To avoid mistakes done in the past, the new languages and frameworks are made with a diferent perspective"
+shortDescription: "The new languages and the new perspective of software development"
 date: 2023-09-23
 ---
 

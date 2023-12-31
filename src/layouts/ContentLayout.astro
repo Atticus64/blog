@@ -4,25 +4,26 @@
   - pages/blog/[slug].astro
 */
 // Import the global.css file here so that it is included on
-import "../styles/global.css";
-import "../styles/markdown.css";
+import "../styles/global.css"
+import "../styles/markdown.css"
 
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import Favicon from "./Favicon.astro";
-import { ViewTransitions, fade } from "astro:transitions";
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import Favicon from "./Favicon.astro"
+import { ViewTransitions, slide } from "astro:transitions"
 
 export interface Props {
-  title: string;
-  date: Date;
+  title: string
+  date: Date
+  shortDescription: string
 }
 
-const { title, date, description } = Astro.props;
+const { title, date, shortDescription } = Astro.props
 const formattedDate = new Date(date).toLocaleDateString("en-us", {
   year: "numeric",
   month: "short",
   day: "numeric",
-});
+})
 ---
 
 <!DOCTYPE html>
@@ -34,59 +35,60 @@ const formattedDate = new Date(date).toLocaleDateString("en-us", {
     <meta name="generator" content="Blogster" />
     <Favicon />
     <slot name="meta" />
-	<ViewTransitions />
+    <ViewTransitions />
   </head>
 
   <body class="text-text-body bg-bg-body max-w-3xl mx-auto px-4 sm:px-8">
     <Header />
     <main id="main">
-      <section transition:animate={fade({ duration: "0.4s" })} class="blog-post">
+      <section
+        transition:animate={slide({ duration: "0.3s" })}
+        class="blog-post"
+      >
         <h1 class="title">{title}</h1>
-        <h4 class="description">{description}</h1>
+        <h4 class="description">{shortDescription}</h4>
         <time class="publish-date">{formattedDate}</time>
         <slot name="content" />
       </section>
     </main>
     <Footer />
+    <style>
+      body {
+        display: grid;
+        min-height: 100vh;
+        grid-template-areas:
+          "header"
+          "main"
+          "footer";
+        grid-template-rows: 5rem minmax(0, 1fr) 5rem;
+        grid-template-columns: minmax(0, 1fr);
+      }
+      main {
+        grid-area: main;
+      }
+    </style>
+    <style>
+      .title {
+        font-size: 2.5em;
+        line-height: 1.2 !important;
+        margin: 0.25em 0 0;
+      }
+      .description {
+        font-size: 1.25em;
+        line-height: 1.5;
+        margin: 0.5em 0 0;
+        opacity: 0.8;
+      }
+      .publish-date {
+        font-size: 0.875em;
+        color: var(--text-muted);
+        margin-bottom: 2rem;
+        display: block;
+      }
+      hr {
+        border-top: 1px solid #ddd;
+        margin: 1rem 0;
+      }
+    </style>
   </body>
-
-  <style>
-    body {
-      display: grid;
-      min-height: 100vh;
-      grid-template-areas:
-        "header"
-        "main"
-        "footer";
-      grid-template-rows: 5rem minmax(0, 1fr) 5rem;
-      grid-template-columns: minmax(0, 1fr);
-    }
-    main {
-      grid-area: main;
-    }
-  </style>
 </html>
-
-<style>
-  .title {
-    font-size: 2.5em;
-    line-height: 1.2 !important;
-    margin: 0.25em 0 0;
-  }
-  .description {
-	font-size: 1.25em;
-	line-height: 1.5;
-	margin: 0.5em 0 0;
-	opacity: 0.8;
-  }
-  .publish-date {
-    font-size: 0.875em;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    display: block;
-  }
-  hr {
-    border-top: 1px solid #ddd;
-    margin: 1rem 0;
-  }
-</style>
